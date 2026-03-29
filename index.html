@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two19 Labs | Web Development for Small Businesses</title>
+  <meta name="description" content="We build fast, secure, and beautiful websites specifically tailored to help small businesses grow their digital presence." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SVG filter for liquid glass distortion -->
+  <svg style="display:none" aria-hidden="true">
+    <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.001 0.005" numOctaves="1" seed="17" result="turbulence"/>
+      <feComponentTransfer in="turbulence" result="mapped">
+        <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5"/>
+        <feFuncG type="gamma" amplitude="0" exponent="1" offset="0"/>
+        <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5"/>
+      </feComponentTransfer>
+      <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap"/>
+      <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lightingColor="white" result="specLight">
+        <fePointLight x="-200" y="-200" z="300"/>
+      </feSpecularLighting>
+      <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage"/>
+      <feDisplacementMap in="SourceGraphic" in2="softMap" scale="200" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <nav class="navbar">
+    <!-- Liquid glass layers -->
+    <div class="glass-blur-layer"></div>
+    <div class="glass-tint-layer"></div>
+    <div class="glass-highlight-layer"></div>
+    <div class="nav-container">
+      <div class="logo-two19">
+         <span class="bracket">[</span> Two<span class="blue-grad">19</span> Labs <span class="bracket">]</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+      </ul>
+      <a href="tel:9834722416" class="btn btn-outline nav-btn desktop-cta">Let's talk</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="tel:9834722416">Let's talk</a></li>
+    </ul>
+  </div>
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+
+  <main style="padding-top: 50px;">
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <span class="eyebrow">Two19 Labs</span>
+        <h1 class="hero-title">
+          <span class="title-bold">Custom Websites</span><br />
+          <span class="title-serif">For Small Businesses</span>
+        </h1>
+        <p class="hero-description">We build fast, secure, and beautiful websites tailored specifically to help local small businesses grow their customer base and digital presence.</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-image-grid">
+          <img src="images/hero_laptop_mockup.png" alt="Laptop showing web design" class="img-top fade-in delay-1" />
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose-us" id="about">
+      <div class="wcu-top">
+        <span class="section-label">Why Choose Us</span>
+      </div>
+      <h2 class="wcu-title fade-in">We blend modern technology with clean design to build fast, affordable websites that empower small businesses.</h2>
+      
+      <div class="wcu-content">
+          <div class="wcu-features">
+            <div class="feature-card fade-in delay-2">
+              <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="feature-text">
+                <h4>Performance Driven</h4>
+                <p>We craft lightning-fast websites deeply rooted in technical excellence, helping you rank higher and convert more visitors.</p>
+              </div>
+            </div>
+            <div class="feature-card fade-in delay-3">
+              <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="feature-text">
+                <h4>Mobile Optimized</h4>
+                <p>Responsive across all devices, ensuring your customers have a seamless experience whether they are on their phone or desktop.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="services-header">
+        <h2 class="services-title">Everything you need<br>to launch online</h2>
+        <a href="#services" class="btn btn-outline-white">Services</a>
+      </div>
+      <div class="services-accordion">
+        
+        <div class="accordion-item active fade-in delay-1">
+          <div class="accordion-header">
+            <h3>Custom Web Development</h3>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-details">
+              <h4>Technical Strategy</h4>
+              <div class="accordion-tags">
+                <span class="tag">HTML/CSS/JS</span>
+                <span class="tag">Fast Loading</span>
+                <span class="tag">Hosting</span>
+                <span class="tag">Security</span>
+              </div>
+              <a href="#contact" class="btn btn-dark">Start Building</a>
+            </div>
+            <div class="accordion-image">
+              <img src="https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=800&q=80" alt="Desktop Monitor Mockup" />
+              <div class="accordion-img-caption">
+                 <h5>The Result</h5>
+                 <p>Our tailored web solutions deliver measurable enhancements perfectly aligned to your small business goals—ensuring an accessible online storefront.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="projects-header">
+        <span class="section-label">Projects</span>
+        <h2 class="projects-title">Built perfectly for<br>Small Businesses</h2>
+      </div>
+
+      <div class="project-grid-container">
+        
+        <div class="project-card fade-in delay-1">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&h=800&q=80" alt="Cosmetic Website Product" />
+            <a href="#" class="view-project-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="project-info">
+            <h3>Boutique<br>Cosmetics<br>Store</h3>
+            <p>From seamless e-commerce integration to fast loading checkouts, driving massive local sales efficiently.</p>
+          </div>
+        </div>
+
+        <div class="project-card reverse fade-in delay-2">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Laptop display over modern desk" />
+            <a href="#" class="view-project-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="project-info">
+            <h3>Local Finance<br>Agency Space</h3>
+            <p>Built a robust booking & information platform to establish authority within the neighborhood financial sector.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="center-btn-wrapper">
+         <a href="#projects" class="btn btn-dark">See All Projects</a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+      <div class="test-header">
+        <span class="btn btn-white-pill">Client Review &amp; Testimonials</span>
+      </div>
+      <p class="test-intro fade-in">Small Businesses rave about us.</p>
+      
+      <h2 class="test-quote fade-in delay-1">"Two19 Labs transformed our outdated online presence into a stunning, lightning-fast platform. Their attention to technical detail and clear communication made launching our local business website a breeze."</h2>
+      
+      <div class="test-footer fade-in delay-2">
+        <div class="test-authors">
+           <div class="author-pill">
+             <div class="author-images"></div>
+             Owner, Local Cafe
+           </div>
+           <div class="author-pill">
+             <div class="author-images"></div>
+             Lead Dev Two19 Labs
+           </div>
+        </div>
+        <a href="#contact" class="btn btn-white">Start Your Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </section>
+
+    <!-- PRICING / PROJECT TIERS -->
+    <section class="pricing" id="pricing">
+      <div class="projects-header">
+        <span class="section-label">Pricing</span>
+        <h2 class="projects-title">Affordable Rates<br>for Small Teams</h2>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Starter package -->
+        <div class="price-card fade-in delay-1">
+          <div class="icon-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" fill="white"/></svg></div>
+          <h3>Basic Site</h3>
+          <p>Ideal for local shops getting started.</p>
+          <div class="price">
+            <span class="amount">$200</span> <span class="period">/month</span>
+          </div>
+          <a href="#" class="btn btn-dark full-width">Start Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          
+          <ul class="features-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom Web Design</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Mobile Responsive</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Domain Integration</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span class="muted">Advanced SEO Config</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span class="muted">E-Commerce Ready</span></li>
+          </ul>
+        </div>
+        
+        <!-- Popular package -->
+        <div class="price-card fade-in delay-2">
+           <div class="icon-circle outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2V22M2 12H22M4.9 4.9L19.1 19.1M4.9 19.1L19.1 4.9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Standard Site</h3>
+          <p>Ideal for established businesses online.</p>
+          <div class="price">
+            <span class="amount">$600</span> <span class="period">/month</span>
+          </div>
+          <a href="#" class="btn btn-dark full-width">Book Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          
+          <ul class="features-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom Web Design</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Mobile Responsive</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Content Architecture</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Advanced SEO Config</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Google Maps Auth</li>
+          </ul>
+        </div>
+
+        <!-- Premium package -->
+        <div class="price-card fade-in delay-3">
+          <div class="icon-circle outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2V22M2 12H22M4.9 4.9L19.1 19.1M4.9 19.1L19.1 4.9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>E-Commerce</h3>
+          <p>Ideal for selling products and inventory.</p>
+          <div class="price">
+            <span class="amount">$900</span> <span class="period">/month</span>
+          </div>
+          <a href="#" class="btn btn-dark full-width">Book Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          
+          <ul class="features-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom Web Design</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Payment Integrations</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Catalog Management</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Advanced SEO Config</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#1c27ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority Maintenance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="pages">
+      <div class="faq-header">
+        <h2 class="faq-title">Frequently<br>Asked Questions</h2>
+        <div class="faq-right">
+          <p>If you have any further questions please contact us.</p>
+          <a href="#contact" class="btn btn-dark">Ask A Question</a>
+        </div>
+      </div>
+      
+      <div class="faq-grid">
+        <div class="faq-item fade-in delay-1">
+          <h4>What do you create?</h4>
+          <p>We build professional, responsive, and blazing-fast websites specifically tailored for small businesses and local companies.</p>
+        </div>
+        <div class="faq-item fade-in delay-2">
+          <h4>What is the process?</h4>
+          <p>We work carefully to capture your brand identity, plan the technical execution, and deploy the website onto live servers with SEO.</p>
+        </div>
+        <div class="faq-item fade-in delay-3">
+          <h4>Why choose Two19 Labs?</h4>
+          <p>Because we only focus on Web Development. No distractions, no inflated marketing costs. Just incredible websites for your business.</p>
+        </div>
+        <div class="faq-item fade-in delay-4">
+          <h4>How do you start?</h4>
+          <p>Reach out to us using the contact form, and our lead developer will coordinate an immediate discovery chat with you.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h2>Don't miss, do it right.</h2>
+        <address>
+          Two19 Labs<br>
+          Serving Small Businesses Worldwide
+        </address>
+        <div class="newsletter">
+          <p>Sign up to our newsletter</p>
+          <form class="newsletter-form">
+             <input type="email" placeholder="Email" required />
+             <button type="submit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#home">Overview</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Portfolio</a></li>
+            <li><a href="#pricing">Pricing Plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+             <li><a href="#">Terms &amp; Conditions</a></li>
+             <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+           <a href="#">Instagram</a>
+           <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
